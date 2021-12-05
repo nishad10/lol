@@ -16,7 +16,6 @@ cred_info = {
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
     "client_x509_cert_url": os.environ['x509']
 }
-print(cred_info)
 
 cred = firebase_admin.credentials.Certificate(cred_info)
 app = firebase_admin.initialize_app(cred, {
@@ -26,7 +25,7 @@ ref = db.reference("/")
 
 # Read
 response = requests.get(
-    f"https://na.whatismymmr.com/api/v1/summoner?name=${os.environ['SUMMONER']}")
+    f"https://na.whatismymmr.com/api/v1/summoner?name={os.environ['SUMMONER']}")
 aram_data = response.json()['ARAM']
 
 # Write
