@@ -16,8 +16,9 @@ cred_info = {
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": os.environ['x509']
 }
-cred = firebase_admin.credentials.Certificate(cred_info)
+print(cred_info)
 
+cred = firebase_admin.credentials.Certificate(cred_info)
 app = firebase_admin.initialize_app(cred, {
 	'databaseURL':os.environ['DATABASE_URL']
 	})
